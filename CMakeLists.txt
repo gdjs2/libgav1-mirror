@@ -119,6 +119,10 @@ endif()
 set(libgav1_abseil_build "${libgav1_build}/abseil")
 set(libgav1_gtest_build "${libgav1_build}/gtest")
 
+if(MSVC)
+  add_compile_options(/FA /Fa${CMAKE_BINARY_DIR}/)
+endif()
+
 # Compiler/linker flags must be lists, but come in from the environment as
 # strings. Break them up:
 if(NOT "${LIBGAV1_CXX_FLAGS}" STREQUAL "")
